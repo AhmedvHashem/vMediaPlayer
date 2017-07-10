@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/activity_single_video"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@android:color/black"
+    tools:context="com.vivantor.examples.SingleVideoActivity">
+
+    <com.vivantor.mediaplayer.UI.VVideoPlayer
+        android:id="@+id/videoPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <!--
+        app:bgColor="#80ffffff"
+        app:timeColor="@color/color_1"
+        app:timelineIndicatorColor="@color/color_1"
+        app:timelineProgressColor="#8b0000"
+        app:toggleDrawable="@mipmap/ic_launcher"
+        -->
+</LinearLayout>

@@ -1,0 +1,9 @@
+<resources>
+    <declare-styleable name="VVideoPlayer">
+        <attr name="bgColor" format="color"/>
+        <attr name="timeColor" format="color"/>
+        <attr name="timelineProgressColor" format="color"/>
+        <attr name="timelineIndicatorColor" format="color"/>
+        <attr name="toggleDrawable" format="reference"/>
+    </declare-styleable>
+</resources>
