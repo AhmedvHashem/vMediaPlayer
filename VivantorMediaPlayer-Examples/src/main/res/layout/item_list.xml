@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/RelativeLayout1"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingBottom="100dp"
-    android:paddingTop="100dp">
+    android:paddingTop="100dp"
+    android:paddingBottom="100dp">
 
     <TextView
         android:id="@+id/mediaURL"
@@ -14,12 +13,17 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:gravity="center"
-        android:text="name"/>
+        android:text="name" />
 
-    <com.vivantor.mediaplayer.UI.VAudioPlayer
-        android:id="@+id/audioPlayer"
+    <!--<com.vivantor.mediaplayer.UI.VAudioPlayer-->
+        <!--android:id="@+id/audioPlayer"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center" />-->
+
+    <com.vivantor.mediaplayer.UI.VVideoPlayer
+        android:id="@+id/videoPlayer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

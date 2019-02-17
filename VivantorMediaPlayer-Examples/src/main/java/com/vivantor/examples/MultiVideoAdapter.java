@@ -9,77 +9,67 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.vivantor.mediaplayer.Interfaces.VMediaPlayerEvents;
 import com.vivantor.mediaplayer.MediaFile;
 import com.vivantor.mediaplayer.MediaPlayerManager;
-import com.vivantor.mediaplayer.Interfaces.VMediaPlayerEvents;
 import com.vivantor.mediaplayer.UI.VAudioPlayer;
+import com.vivantor.mediaplayer.UI.VVideoPlayer;
 
 import java.util.List;
 
 /**
  * Created by AhmedNTS on 2016-06-07.
  */
-public class MultiVideoAdapter extends ArrayAdapter<MediaFile>
-{
-	private Context context;
+public class MultiVideoAdapter extends ArrayAdapter<MediaFile> {
+    private Context context;
 
-	public MultiVideoAdapter(Context context, List<MediaFile> items)
-	{
-		super(context, -1, items);
-		this.context = context;
-	}
+    public MultiVideoAdapter(Context context, List<MediaFile> items) {
+        super(context, -1, items);
+        this.context = context;
+    }
 
-	@NonNull
-	public View getView(final int position, View view, @NonNull ViewGroup parent)
-	{
-		final MediaFile mediaFile = getItem(position);
+    @NonNull
+    public View getView(final int position, View view, @NonNull ViewGroup parent) {
+        final MediaFile mediaFile = getItem(position);
 
-		final ViewHolder holder;
+        final ViewHolder holder;
 
-		if (view == null)
-		{
-			LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-			view = mInflater.inflate(R.layout.item_list, null);
+        if (view == null) {
+            LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+            view = mInflater.inflate(R.layout.item_list, null);
 
-			holder = new ViewHolder();
-			holder.player = (VAudioPlayer) view.findViewById(R.id.audioPlayer);
-			holder.mediaURL = (TextView) view.findViewById(R.id.mediaURL);
+            holder = new ViewHolder();
+            holder.player = view.findViewById(R.id.videoPlayer);
+            holder.mediaURL = view.findViewById(R.id.mediaURL);
 
-			view.setTag(holder);
-		}
-		else
-		{
-			holder = (ViewHolder) view.getTag();
-		}
+            view.setTag(holder);
+        } else {
+            holder = (ViewHolder) view.getTag();
+        }
 
-		if (mediaFile != null)
-		{
-			holder.mediaURL.setText(mediaFile.filePath);
+        if (mediaFile != null) {
+            holder.mediaURL.setText(mediaFile.filePath);
 
-			holder.player.setMediaFile(mediaFile);
-			holder.player.setOnVPlayerListener(new VMediaPlayerEvents()
-			{
-				@Override
-				public void OnPlayClicked()
-				{
-					MediaPlayerManager.getInstance().StartPlayer(holder.player);
-				}
+            holder.player.setMediaFile(mediaFile);
+            holder.player.setOnVPlayerListener(new VMediaPlayerEvents() {
+                @Override
+                public void OnPlayClicked() {
+                    MediaPlayerManager.getInstance().StartPlayer(holder.player);
+                }
 
-				@Override
-				public void OnPauseClicked()
-				{
-					MediaPlayerManager.getInstance().PausePlayer(holder.player);
-				}
-			});
-		}
+                @Override
+                public void OnPauseClicked() {
+                    MediaPlayerManager.getInstance().PausePlayer(holder.player);
+                }
+            });
+        }
 
-		return view;
-	}
+        return view;
+    }
 
-	private static class ViewHolder
-	{
-		TextView mediaURL;
-		VAudioPlayer player;
-	}
+    private static class ViewHolder {
+        TextView mediaURL;
+        VVideoPlayer player;
+    }
 }
 

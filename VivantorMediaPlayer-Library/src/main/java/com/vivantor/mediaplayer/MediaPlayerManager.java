@@ -1,5 +1,6 @@
 package com.vivantor.mediaplayer;
 
+import com.vivantor.mediaplayer.Interfaces.VPlayer;
 import com.vivantor.mediaplayer.UI.VAudioPlayer;
 
 /**
@@ -11,7 +12,7 @@ public class MediaPlayerManager
 
 	private static MediaPlayerManager instance;
 
-	private VAudioPlayer currentPlayer;
+	private VPlayer currentPlayer;
 
 	private MediaPlayerManager()
 	{
@@ -25,7 +26,7 @@ public class MediaPlayerManager
 		return instance;
 	}
 
-	public void StartPlayer(VAudioPlayer player)
+	public void StartPlayer(VPlayer player)
 	{
 		if (player == null) return;
 
@@ -41,7 +42,7 @@ public class MediaPlayerManager
 		}
 	}
 
-	public void PausePlayer(VAudioPlayer player)
+	public void PausePlayer(VPlayer player)
 	{
 		player.Pause();
 	}
