@@ -191,7 +191,7 @@ public class VVideoPlayer
             Stop();
 
         this.mediaFile = mediaFile;
-        mediaPlayer.setVideoPath(this.mediaFile.filePath);
+//        mediaPlayer.setVideoPath(this.mediaFile.filePath);
 
         mediaToggle.setChecked(false);
         mediaSeekBar.setProgress(Utils.getProgressPercentage(this.mediaFile.currentDuration, this.mediaFile.totalDuration));
@@ -204,6 +204,7 @@ public class VVideoPlayer
     public void Start() {
         if (this.mediaFile == null) return;
 
+        mediaPlayer.setVideoPath(this.mediaFile.filePath);
         mediaPlayer.setOnCompletionListener(this);
 
         if (!isPlaying()) {
