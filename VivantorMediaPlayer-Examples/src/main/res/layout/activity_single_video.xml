@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:id="@+id/activity_single_video"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_single_video"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:background="@android:color/black"
+    android:gravity="center"
     tools:context="com.vivantor.examples.SingleVideoActivity">
 
     <com.vivantor.mediaplayer.UI.VVideoPlayer
         android:id="@+id/videoPlayer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/videoThumbnail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
     <!--
         app:bgColor="#80ffffff"
         app:timeColor="@color/color_1"
@@ -20,4 +25,4 @@
         app:timelineProgressColor="#8b0000"
         app:toggleDrawable="@mipmap/ic_launcher"
         -->
-</LinearLayout>
+</FrameLayout>

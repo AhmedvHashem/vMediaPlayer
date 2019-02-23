@@ -1,60 +1,41 @@
 package com.vivantor.examples;
 
+import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.vivantor.mediaplayer.MediaFile;
 import com.vivantor.mediaplayer.UI.VVideoPlayer;
+import com.vivantor.mediaplayer.Utils;
 
-public class SingleVideoActivity extends AppCompatActivity
-{
-	@Override
-	protected void onCreate(Bundle savedInstanceState)
-	{
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_single_video);
+public class SingleVideoActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_single_video);
+        ImageView videoThumbnail = findViewById(R.id.videoThumbnail);
+        VVideoPlayer videoPlayer = findViewById(R.id.videoPlayer);
 
-		setTitle("");
+//        String url = "android.resource://" + getPackageName() + "/" + R.raw.video;
+        String url = "http://clips.vorwaerts-gmbh.de/VfE_html5.mp4";
 
-		ActionBar actionBar = getSupportActionBar();
-		if (actionBar != null)
-		{
-			actionBar.setDisplayHomeAsUpEnabled(true);
-			actionBar.setHomeButtonEnabled(true);
-		}
+//        Bitmap bitmap = null;
+//        try {
+//            bitmap = Utils.retriveVideoFrameFromVideo(url);
+//        } catch (Throwable throwable) {
+//            throwable.printStackTrace();
+//        }
+//
+//        if (bitmap != null) {
+//            bitmap = Bitmap.createScaledBitmap(bitmap, 240, 240, false);
+//            videoThumbnail.setImageBitmap(bitmap);
+//        }
 
-		getWindow().getDecorView().setSystemUiVisibility(
-				View.SYSTEM_UI_FLAG_LOW_PROFILE
-				| View.SYSTEM_UI_FLAG_FULLSCREEN
-				| View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-				| View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-				| View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-
-		VVideoPlayer videoPlayer = (VVideoPlayer)findViewById(R.id.videoPlayer);
-		videoPlayer.setMediaFile(new MediaFile("android.resource://" + getPackageName() + "/" + R.raw.video));
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu)
-	{
-//		getMenuInflater().inflate(R.menu.menu_save, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item)
-	{
-		switch (item.getItemId())
-		{
-			case android.R.id.home:
-//				onBackPressed();
-				break;
-		}
-
-		return super.onOptionsItemSelected(item);
-	}
+        videoPlayer.setMediaFile(new MediaFile(url));
+    }
 }
