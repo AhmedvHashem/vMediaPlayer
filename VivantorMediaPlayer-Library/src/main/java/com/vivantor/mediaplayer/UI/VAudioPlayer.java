@@ -110,13 +110,8 @@ public class VAudioPlayer
     }
 
     @Override
-    public void Start() {
+    public void Prepare() {
         if (this.mediaFile == null) return;
-
-//		this.mediaFile = mediaFile;
-
-        AudioManager am = (AudioManager) getContext().getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
-        am.requestAudioFocus(null, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
 
         try {
             if (mediaPlayer == null)
@@ -129,6 +124,14 @@ public class VAudioPlayer
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void Start() {
+        if (this.mediaFile == null) return;
+
+        AudioManager am = (AudioManager) getContext().getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
+        am.requestAudioFocus(null, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
 
         mediaPlayer.setOnCompletionListener(this);
 

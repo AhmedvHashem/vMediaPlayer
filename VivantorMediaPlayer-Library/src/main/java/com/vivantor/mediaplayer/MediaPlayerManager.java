@@ -38,6 +38,7 @@ public class MediaPlayerManager
 				currentPlayer.Pause();
 
 			currentPlayer = player;
+			currentPlayer.Prepare();
 			currentPlayer.Start();
 		}
 	}

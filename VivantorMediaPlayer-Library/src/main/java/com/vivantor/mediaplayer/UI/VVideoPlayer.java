@@ -201,10 +201,16 @@ public class VVideoPlayer
     }
 
     @Override
-    public void Start() {
+    public void Prepare() {
         if (this.mediaFile == null) return;
 
         mediaPlayer.setVideoPath(this.mediaFile.filePath);
+    }
+
+    @Override
+    public void Start() {
+        if (this.mediaFile == null) return;
+
         mediaPlayer.setOnCompletionListener(this);
 
         if (!isPlaying()) {
